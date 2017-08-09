@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/elixir-app
+    docker:
+      - image: trenpixster/elixir:1.4.4
+    steps:
+      - checkout
+      - run: mix deps.get
+      - run: mix test
