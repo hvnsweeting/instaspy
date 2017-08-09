@@ -1,4 +1,6 @@
 # Instaspy
+[![CircleCI](https://circleci.com/gh/hvnsweeting/instaspy.svg?style=svg)](https://circleci.com/gh/hvnsweeting/instaspy)
+
 Simple tool for spying on Instagram account
 
 ## Installation
