@@ -8,7 +8,8 @@ defmodule Instaspy do
   """
   def check(username) do
     {:ok, resp} = HTTPoison.get "https://www.instagram.com/#{username}/"
-    [json_text] = Regex.run(~r/{.*}/, resp.body)
+    [json_text] = Regex.run(~r/window._sharedData = {.*}/, resp.body)
+    json_text = String.replace_prefix(json_text, "window._sharedData = ", "")
     {:ok, data} = Poison.decode(json_text)
     count = hd(data["entry_data"]["ProfilePage"])["user"]["media"]["count"]
     count
